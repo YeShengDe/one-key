@@ -1,0 +1,66 @@
+{
+    "inbounds": [
+        {
+            "type": "hysteria2",
+            "listen": "::",
+            "listen_port": 27382,
+            "users": [
+                {
+                    "password": "Dvk8lnM2JMdHdew1w48CyA=="
+                }
+            ],
+            "masquerade": "https://bing.com",
+            "tls": {
+                "enabled": true,
+                "alpn": [
+                    "h3"
+                ],
+                "certificate_path": "/etc/hysteria/cert.pem",
+                "key_path": "/etc/hysteria/private.key"
+            }
+        },
+        {
+            "type": "vless",
+            "listen": "::",
+            "listen_port": 27383,
+            "users": [
+                {
+                    "uuid": "5C31C078-7985-45F1-AA66-472AF4548F08",
+                    "flow": "xtls-rprx-vision"
+                }
+            ],
+            "tls": {
+                "enabled": true,
+                "server_name": "www.tesla.com",
+                "reality": {
+                    "enabled": true,
+                    "handshake": {
+                        "server": "www.tesla.com",
+                        "server_port": 443
+                    },
+                    "private_key": "COydMNH1AiN4dJCH8BTMu9JjLD_galgM_lrFNQJ3QXk",
+                    "short_id": [
+                        "fdb56895c19550c6"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "socks",
+            "tag": "socks-in",
+            "listen": "::",
+            "listen_port": 27384,
+            "users": [
+                {
+                    "username": "sock5",
+                    "password": "fdb56895c19550c6"
+                }
+            ]
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct"
+        }
+    ]
+}
